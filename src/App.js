@@ -1,14 +1,12 @@
 import './App.css';
-import Header from './components/Header';
+import AppLayout from './AppLayout';
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header"> </header> */}
 
       <section> 
-        <Header className="Header"> </Header>
-
+        <AppLayout> </AppLayout>
       </section>
 
     </div>
