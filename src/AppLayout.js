@@ -3,10 +3,10 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import About from './routes/About';
 import Personal from './routes/Personal';
-import Contact from './routes/ContactUs';
+import Contact from './routes/Contact';
 import Home from './routes/Home';
 import Navbar from './components/Navbar';
-import { Register } from './routes/Register'; 
+import { Register } from './routes/Register';
 
 export default function AppLayout() {
     return (
