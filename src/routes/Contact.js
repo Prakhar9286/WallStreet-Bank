@@ -1,7 +1,9 @@
 import React from "react";
 
-export default function ContactUs(){
+export default function Contact(){
     return (
-        <h1>This is ContactUs</h1>
+        <div className="home">
+        <h1>This is Contact</h1>
+        </div>
     );
 }

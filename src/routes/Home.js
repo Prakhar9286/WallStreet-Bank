@@ -1,9 +1,32 @@
 import React from "react";
+import {useNavigate} from 'react-router-dom';
 
 export default function Home(){
+    // const [noAccount, setAccount] = useState('/Home');
+    // // const [account, setnetBanking] = useState('/Home');
+
+    // const newRegister = () => {
+    //     setAccount('Register');
+    // }
+
+    // // const Account = () => {
+    // //     setnetBanking('/netBanking');
+    // // }
+
+    const navigate = useNavigate();
+
+    const navigateToContacts = () => {
+        navigate('/Register');
+    };
+
+    const navigateHome = () => {
+        navigate('/netBanking');
+    };
+
+
     return (
-        <>
-        <h1>This is Home</h1>
+        <div className="home">
+        <h1 className="intro">Welcome to WallStreet</h1>
         {/* <img src="images/img1.jpg" classNameName="img1" alt="Banking Solutions"/> */}
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
@@ -13,24 +36,21 @@ export default function Home(){
         </div>
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src="/images/img2.jpg" className="img2" alt="Loan Advertisement"/>
+            <img src="/images/img2.jpg" className="img12" alt="Loan Advertisement"/>
             <div className="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+                <h5 className="textcarousal">Lifetime free credit Card</h5>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/images/img3.jpg" className="d-block w-100" alt="Fixed Deposit"/>
+            <img src="/images/img3.jpg" className="img12" alt="Fixed Deposit"/>
             <div className="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Some representative placeholder content for the second slide.</p>
+                <h5 className="textcarousal">Low interest loans</h5>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/images/img4.png" className="d-block w-100" alt="Credit Card"/>
+            <img src="/images/img4.png" className="img12" alt="Credit Card"/>
             <div className="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5 className="textcarousal">Free rides</h5>
             </div>
             </div>
         </div>
@@ -43,6 +63,11 @@ export default function Home(){
             <span className="visually-hidden">Next</span>
         </button>
         </div>
-        </>
+        
+        <div className="box-container">
+            <button type="button" className="box1" onClick={navigateToContacts}>Are You a new User!</button>
+            <button type="button" className="box2" onClick={navigateHome}>Are You an Existing User!</button>
+        </div>
+        </div>
     );
 }

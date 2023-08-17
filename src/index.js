@@ -6,7 +6,7 @@ import App from './App';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Home from './routes/Home';
 import About from './routes/About';
-import ContactUs from './routes/ContactUs';
+import Contact from './routes/Contact';
 import Personal from './routes/Personal';
 
 export default function navElements(){
@@ -15,7 +15,7 @@ export default function navElements(){
       <Routes>
           <Route index element={<Home />} />
           <Route path="Personal" element={<Personal />} />
-          <Route path="contact" element={<ContactUs />} />
+          <Route path="contact" element={<Contact />} />
           <Route path="About" element={<About />} />
           {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>

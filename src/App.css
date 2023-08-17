@@ -1,10 +1,13 @@
+.home{
+  background-color: rgb(148, 148, 207);
+}
+
 .App {
   text-align: center;
   display: flex;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
-  color: white;
   background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
 }
 
@@ -49,8 +52,83 @@ button {
   text-decoration: underline;
 }
 
-.img2{
-  align-items: center;
+.img12{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 1400px;
+  height: 700px;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
   width: 100%;
-  height: 30%;
+  background-color: black;
+  color: aliceblue;
+  text-align: center;
+  /* text-align: center;
+  background-color: black;
+  color: aliceblue;
+  padding: 5px;*/
+}
+
+.textcarousal{
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  width:300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+
+.intro{
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 0%;
+  color: #7439db;
+}
+
+.box-container{
+  margin-left: 20%; 
+  margin-top: 5px; 
+  width: 900px;
+  height: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.box1{
+    padding-top: 10px;
+    margin-left: 20%;
+    margin-bottom: auto;
+    width: 300px;
+    height: 50px;
+    border-radius: 15px;
+    color: brown;
+    background-color: mediumspringgreen;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+}
+
+.box2{
+  padding-top: 10px;
+  margin-left: 20%;
+  margin-bottom: auto;
+  width: 300px;
+  height: 50px;
+  border-radius: 15px;
+  color: blueviolet;
+  background-color: mediumspringgreen;
+  text-align: center;
+  font-size: large;
+  font-weight: bold;
 }
