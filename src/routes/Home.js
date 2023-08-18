@@ -36,21 +36,21 @@ export default function Home(){
         </div>
         <div className="carousel-inner">
             <div className="carousel-item active">
-            <img src="/images/img2.jpg" className="img12" alt="Loan Advertisement"/>
+            <img src="/images/creditcard.png" className="img12" alt="Credit card Advertisement"/>
             <div className="carousel-caption d-none d-md-block">
                 <h5 className="textcarousal">Lifetime free credit Card</h5>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/images/img3.jpg" className="img12" alt="Fixed Deposit"/>
+            <img src="/images/loanimage.png" className="img12" alt="Home Loans"/>
             <div className="carousel-caption d-none d-md-block">
                 <h5 className="textcarousal">Low interest loans</h5>
             </div>
             </div>
             <div className="carousel-item">
-            <img src="/images/img4.png" className="img12" alt="Credit Card"/>
+            <img src="/images/payhasslefree.png" className="img12" alt="Credit Card"/>
             <div className="carousel-caption d-none d-md-block">
-                <h5 className="textcarousal">Free rides</h5>
+                <h5 className="textcarousal">Pay Hassle free loans</h5>
             </div>
             </div>
         </div>
