@@ -7,6 +7,11 @@ import Contact from './routes/Contact';
 import Home from './routes/Home';
 import Navbar from './components/Navbar';
 import { Register } from './routes/Register';
+import { Login } from './routes/Login';
+import { BasicInformation }from './userInformation/BasicInformation';
+import NetBanking from './routes/NetBanking';
+import { Address } from './userInformation/Address';
+import { PermanentAddress } from './userInformation/PermanentAddress';
 
 export default function AppLayout() {
     return (
@@ -19,6 +24,11 @@ export default function AppLayout() {
             <Route path="Contact" element={<Contact />} />
             <Route path="about" element={<About/>} />
             <Route path="register" element={<Register/>} />
+            <Route path="login" element={<Login/>} />
+            <Route path="basicinformation" element={<BasicInformation/>} />
+            <Route path="netbanking" element={<NetBanking/>} />
+            <Route path="address" element={<Address/>} />
+            <Route path="permanentaddress" element={<PermanentAddress/>} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,0 +1,80 @@
+.permanentaddressApp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 115vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      ),
+      url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center;
+    padding-top: 25px;
+    padding-bottom: 48px;
+  }
+   
+  .permanentaddressform{
+      background-color: white;
+      padding: 30px 60px;
+      border-radius: 10px;
+  }
+  
+  h1{
+      color: rgb(77, 1, 77);
+      text-align: center;
+  }
+
+  h2{
+    padding-top: 5px;
+    text-align: center;
+  }
+
+  .permanentaddressformInput{
+    display: flex;
+    flex-direction: column;
+    width: 365px;
+}
+
+input{
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+label{
+    font-size: 12px;
+    color: gray;
+    font-weight: bold;
+}
+
+span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+
+input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span{
+    display: block;
+}  
+
+.permanentaddressbutton {
+    display: block;
+    text-align: center;
+    width: 100%;
+    border-radius: 10px;
+    color: wheat;
+    background-color: black;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    height: 30px;
+    /* padding-bottom: 10px; */
+}

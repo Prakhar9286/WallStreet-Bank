@@ -1,27 +1,28 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
+// import {useNavigate} from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export default function Home(){
-    // const [noAccount, setAccount] = useState('/Home');
-    // // const [account, setnetBanking] = useState('/Home');
+    // const [noAccount, setAccount] = useState('Home');
+    // const [account, setnetBanking] = useState('Home');
 
     // const newRegister = () => {
     //     setAccount('Register');
     // }
 
-    // // const Account = () => {
-    // //     setnetBanking('/netBanking');
-    // // }
+    // const Account = () => {
+    //     setnetBanking('netBanking');
+    // }
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const navigateToContacts = () => {
-        navigate('/Register');
-    };
+    // const navigateToContacts = () => {
+    //     navigate('/Register');
+    // };
 
-    const navigateHome = () => {
-        navigate('/netBanking');
-    };
+    // const navigateHome = () => {
+    //     navigate('/netBanking');
+    // };
 
 
     return (
@@ -65,8 +66,8 @@ export default function Home(){
         </div>
         
         <div className="box-container">
-            <button type="button" className="box1" onClick={navigateToContacts}>Are You a new User!</button>
-            <button type="button" className="box2" onClick={navigateHome}>Are You an Existing User!</button>
+            <Link className="box1" to="/register">Are You a new User!</Link>
+            <Link className="box2" to="/netbanking">Are You an Existing User!</Link>
         </div>
         </div>
     );

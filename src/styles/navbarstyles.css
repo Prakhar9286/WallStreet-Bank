@@ -1,0 +1,19 @@
+.loginbtn{
+    text-align: right;
+    margin-left: 900px;
+}
+
+.nav-item{
+    font-size: large;
+    color: blanchedalmond;
+    padding-left: 10px;
+}
+
+.navbar-brand-logo{
+    color: wheat;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 20px;
+    margin-right: 20px;
+}

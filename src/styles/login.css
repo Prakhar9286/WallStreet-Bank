@@ -1,0 +1,52 @@
+.loginform{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.7),
+        rgba(255, 255, 255, 0.3)
+      ),
+      url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+    background-size: cover;
+    background-position: center;
+    /* width: 100px; */
+    padding-bottom: 30px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    width: 401px;
+    height: 350px;
+    padding-top: 27px;
+}
+
+.input {
+      background-color: black;
+      padding: 0px 60px;
+      border-radius: 10px;
+      border-top: 20px;
+}
+
+.h2 {
+  color: rgb(77, 1, 77);
+  text-align: center;
+}
+
+.link-btn{
+    color: black;
+    padding-left: 2px;
+}
+
+.submitbtn{
+    text-align: center;
+    width: auto;
+    border-radius: 10px;
+    color: wheat;
+    background-color: black;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+}
+
