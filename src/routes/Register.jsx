@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../styles/Register.css";
 import { RegisterForm } from "./RegisterForm";
 import { Link } from "react-router-dom";
-
+import AuthenticationService from "../services/AuthenticationService";
 export const Register = (props) => {
   const [values, setValues] = useState({
     username: "",
@@ -55,6 +55,37 @@ export const Register = (props) => {
     },
   ];
 
+
+  const handleRegister = async () => {
+    if (!values.email || !values.password) {
+    //   setErrorMessage('Please enter both email and password.');
+      return;
+    }
+
+    const customer = {
+      "email" : values.email,
+      "password" : values.password
+    };
+
+try {
+    const registerSuccess = await AuthenticationService.registerDealer1(customer);
+    console.log('API response:', registerSuccess.data); // Add this line
+    if (registerSuccess) {
+        console.log("Register successful!")
+    //   setSuccessMessage('Login successful. Redirecting...');
+    //   setTimeout(() => {
+    //     history('/netbanking'); // navigates to product Component
+    //   }, 2000);
+    } else {
+      console.log('Invalid email or password.');
+    }
+  } catch (error) {
+    console.error('Register error', error);
+    // setErrorMessage('An error occurred during login.');
+  }
+  
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
   };
@@ -65,7 +96,7 @@ export const Register = (props) => {
 
   return (
     <div className="app">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleRegister}>
         <h1>Register</h1>
         {inputs.map((input) => (
           <RegisterForm
@@ -75,7 +106,7 @@ export const Register = (props) => {
             onChange={onChange}
           />
         ))}
-        <Link className="button1" to="/basicInformation">Submit</Link>
+        <Link className="button1" onClick={handleRegister}>Submit</Link>
         <Link className="button2" to="/login">Already a user ? Sign-in</Link>
       </form>
       
