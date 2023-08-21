@@ -8,6 +8,9 @@ import Home from './routes/Home';
 import About from './routes/About';
 import Contact from './routes/Contact';
 import Personal from './routes/Personal';
+import Imps from './routes/Imps';
+import Neft from './routes/Neft';
+import Rtgs from './routes/Rtgs';
 
 export default function navElements(){
   return(
@@ -17,6 +20,9 @@ export default function navElements(){
           <Route path="Personal" element={<Personal />} />
           <Route path="contact" element={<Contact />} />
           <Route path="About" element={<About />} />
+          <Route path="imps" element = {<Imps/>} />
+          <Route path="neft" element = {<Neft/>} />
+          <Route path ="rtgs" elemnt ={<Rtgs/>}/>
           {/* <Route path="*" element={<NoPage />} /> */}
       </Routes>
     </BrowserRouter>

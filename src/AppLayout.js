@@ -7,6 +7,9 @@ import Contact from './routes/Contact';
 import Home from './routes/Home';
 import Navbar from './components/Navbar';
 import { Register } from './routes/Register';
+import Imps from './routes/Imps';
+import Neft from './routes/Neft';
+import Rtgs from './routes/Rtgs';
 
 export default function AppLayout() {
     return (
@@ -19,6 +22,9 @@ export default function AppLayout() {
             <Route path="Contact" element={<Contact />} />
             <Route path="about" element={<About/>} />
             <Route path="register" element={<Register/>} />
+            <Route path="imps" element={<Imps/>}/>
+            <Route path="neft" element={<Neft/>}/>
+            <Route path="rtgs" element={<Rtgs/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

@@ -27,6 +27,18 @@ export default function Navbar(){
           <li className="nav-item">
             <Link className="nav-link" to="/register">Login</Link>
           </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/register">Signup</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/imps">Imps</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/neft">Neft</Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link" to="/rtgs">Rtgs</Link>
+          </li>
 
         </ul>
         {/* <form className="form-inline my-2 my-lg-0">
