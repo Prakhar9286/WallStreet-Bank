@@ -22,7 +22,7 @@ public class Transaction {
 	private Long fromAc;
 	private Long toAc;
 	private Date date;
-	private float amount;
+	private Float amount;
 	private String transactionTypeId;
 	private String remarks;
 	private String maturityInstructions;

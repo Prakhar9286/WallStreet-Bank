@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,16 +36,17 @@ public class AccountController {
 		}
 	}
 	
-//	public ResponseEntity<String> forgetCustomerId(@Validated @RequestBody Account account) {
-//		Long accountNo = account.getAccountNo();
-//		try {
-//			aservice.changePassword(accountNo, password);
-//			return ResponseEntity.ok("Password changed successfully");
-//		} catch(EntityNotFoundException e) {
-//			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found");
-//		} catch(Exception e) {
-//			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error changing password");
-//		}
-//	}
+	@PostMapping("/{accountId}/deposit")
+	public ResponseEntity<String> depositMoney(@PathVariable Long accountId, @RequestBody Float amount) {
+		try {
+			aservice.depositMoney(accountId, amount);
+			return ResponseEntity.ok("Deposit successful");
+		}
+		catch(EntityNotFoundException e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account not found");
+		} catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Someting went wrong!");
+		}
+	}
 
 }

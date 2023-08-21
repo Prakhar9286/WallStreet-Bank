@@ -34,7 +34,7 @@ public class Account {
 	@OneToOne(mappedBy="account", cascade= CascadeType.ALL)
 	private Customer customer;
 	
-	private float balance;
+	private Float balance;
 	
 	@OneToMany(mappedBy="account", cascade= CascadeType.ALL)
 	private Set<Beneficiary> beneficiary;

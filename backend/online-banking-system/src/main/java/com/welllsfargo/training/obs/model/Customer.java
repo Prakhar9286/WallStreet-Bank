@@ -35,24 +35,24 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long custId;
 	
-	private @NonNull String fname;
-	private @NonNull String lname;
+	private String fname;
+	private String lname;
 	private String mname;
-	private @NonNull String fathersName;
-	private @NonNull String mobile;
+	private String fathersName;
+	private String mobile;
 	private String email;
 	private String password;
 	
 	@Column(unique=true)
-	private @NonNull String aadharNo;
+	private String aadharNo;
 	
 	@JsonFormat(pattern="yyyy-MM-dd")
-	private @NonNull Date dob;
+	private Date dob;
 	
 	@Column(unique=true)
-	private @NonNull String pan;
+	private String pan;
 //	private Boolean hasATM;
-	private @NonNull String title;
+	private String title;
 	private String mothersName;
 	
 	@OneToMany(mappedBy="customer", cascade= CascadeType.ALL)

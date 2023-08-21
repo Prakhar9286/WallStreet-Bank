@@ -1,13 +1,11 @@
 package com.welllsfargo.training.obs.controller;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.welllsfargo.training.obs.exception.ResourceNotFoundException;
 import com.welllsfargo.training.obs.model.Account;
 import com.welllsfargo.training.obs.model.AccountForm;
-import com.welllsfargo.training.obs.model.Address;
 import com.welllsfargo.training.obs.model.Customer;
+import com.welllsfargo.training.obs.model.RegisterForm;
 import com.welllsfargo.training.obs.service.AccountService;
 import com.welllsfargo.training.obs.service.CustomerService;
 
@@ -31,33 +29,37 @@ public class CustomerController {
 	@Autowired
 	private AccountService aservice;
 	
+	
+	@PostMapping("/{custId}/openAccount")
+	public ResponseEntity<String> createCustomer(@PathVariable Long custId, @Validated @RequestBody AccountForm accountForm) {
+		Boolean isAccountPresent = aservice.isAccountCreated(custId);
+		if(isAccountPresent)
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Account already created !");
+		String accountId = cservice.openAccount(custId, accountForm);
+		try {
+			Long.parseLong(accountId);
+			return ResponseEntity.ok(accountId);
+		}
+		catch(Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error during account creation");
+		}
+	}
+	
 	@PostMapping("/register")
-	public ResponseEntity<String> createCustomer(@Validated @RequestBody AccountForm accountForm) {
-		Address residentialAddress = accountForm.getResidentialAddress();
-		Address permanentAddress = accountForm.getPermanentAddress();
-		Customer customer = accountForm.getCustomer();
-		Account account = new Account();
-		residentialAddress.setCustomer(customer);
-		permanentAddress.setCustomer(customer);
-		List<Address> address = Arrays.asList(residentialAddress,permanentAddress);		
-		customer.setAddress(address);
-		 
-		account.setBalance(0);
-		account.setHasATM(accountForm.getHasATM());
-		account.setIfsc(accountForm.getIfsc());
-		account.setAccType("Savings");
-		
-		customer.setAccount(account);
-		account.setCustomer(customer);
-		Account registeredAccount = aservice.registerAccount(account);
-//		Customer registeredCustomer = cservice.registerCustomer(customer);
-		if(registeredAccount != null) {
-			String accountNo = registeredAccount.getAccountNo().toString();
-			return ResponseEntity.ok(accountNo);
+	public ResponseEntity<String> registerCustomer(@Validated @RequestBody RegisterForm registerForm) {
+		String email = registerForm.getEmail();
+		String password = registerForm.getPassword();
+		Customer customer = new Customer();
+		customer.setEmail(email);
+		customer.setPassword(password);
+		Customer registeredCustomer = cservice.registerCustomer(customer);
+		if(registeredCustomer != null) {
+			return ResponseEntity.ok(registeredCustomer.getCustId().toString());
 		}
 		else {
-			return ResponseEntity.badRequest().body("Registration failed");
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error during registration");
 		}
+		
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000")
@@ -74,6 +76,7 @@ public class CustomerController {
 		}
 		return a;
 	}
+	
 	
 	public ResponseEntity<String> forgetCustomerId(@Validated @RequestBody Long accountNo) throws ResourceNotFoundException {
 		Account account = aservice.findByAccountNo(accountNo).orElseThrow(() -> 
