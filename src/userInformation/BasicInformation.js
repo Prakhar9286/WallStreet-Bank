@@ -3,7 +3,7 @@ import "../styles/Register.css";
 import { BasicInformationForm } from "./BasicInformationForm"
 import { Link } from "react-router-dom";
 
-export const BasicInformation = (props) => {
+export const BasicInformation = ({onNext}) => {
   const [values, setValues] = useState({
     fname: "",
     mname: "",
@@ -12,7 +12,7 @@ export const BasicInformation = (props) => {
     mobile: "",
     aadharNo: "",
     dob: "",
-    panNo: "",
+    pan: "",
     title: "",
     mothersName: "",
   });
@@ -96,6 +96,10 @@ export const BasicInformation = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const d = {
+      "customer" : { ...values}
+    }
+    onNext(d);
   };
 
   const onChange = (e) => {
@@ -114,7 +118,7 @@ export const BasicInformation = (props) => {
             onChange={onChange}
           />
         ))}
-        <Link className="basicInformationbutton1" to="/address">Submit</Link>
+        <Link className="basicInformationbutton1" onClick={handleSubmit}>Submit</Link>
       </form>
       
     </div>

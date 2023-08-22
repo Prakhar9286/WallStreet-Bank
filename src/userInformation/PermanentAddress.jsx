@@ -3,7 +3,7 @@ import "../styles/PermanentAddressForm.css";
 import { PermanentAddressForm } from "./PermanentAddressForm"
 import { Link } from "react-router-dom";
 
-export const PermanentAddress = (props) => {
+export const PermanentAddress = ({onSubmit}) => {
     const [values, setValues] = useState({
         addressLine1: "",
         addressLine2: "",
@@ -63,6 +63,10 @@ export const PermanentAddress = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const d = {
+      "permanentAddress" : { ...values}
+    }
+    onSubmit(d);
   };
 
   const onChange = (e) => {
@@ -81,7 +85,7 @@ export const PermanentAddress = (props) => {
             onChange={onChange}
           />
         ))}
-        <Link className="permanentaddressbutton" to="/generateaccountdetails">Submit</Link>
+        <Link className="permanentaddressbutton" onClick={handleSubmit}>Submit</Link>
       </form>
       
     </div>

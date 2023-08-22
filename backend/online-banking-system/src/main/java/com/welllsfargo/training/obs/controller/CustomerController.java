@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.welllsfargo.training.obs.exception.ResourceNotFoundException;
 import com.welllsfargo.training.obs.model.Account;
@@ -21,6 +22,7 @@ import com.welllsfargo.training.obs.service.CustomerService;
 
 @RestController
 @RequestMapping(value="/api")
+@CrossOrigin(origins = "http://localhost:3000")
 public class CustomerController {
 	
 	@Autowired

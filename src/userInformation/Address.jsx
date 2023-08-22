@@ -3,14 +3,14 @@ import "../styles/AddressForm.css";
 import { AddressForm } from "./AddressForm"
 import { Link } from "react-router-dom";
 
-export const Address = (props) => {
+export const Address = ({onNext}) => {
   const [values, setValues] = useState({
-    addressLine1: "",
-    addressLine2: "",
-    landmark: "",
-    state: "",
-    city: "",
-    pincode: "",
+    "addressLine1": "",
+    "addressLine2": "",
+    "landmark": "",
+    "state": "",
+    "city": "",
+    "pincode": 0,
   });
 
   const inputs = [
@@ -62,6 +62,10 @@ export const Address = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const d = {
+      "residentialAddress" : { ...values}
+    }
+    onNext(d);
   };
 
   const onChange = (e) => {
@@ -80,7 +84,7 @@ export const Address = (props) => {
             onChange={onChange}
           />
         ))}
-        <Link className="addressbutton" to="/permanentaddress">Submit</Link>
+        <Link className="addressbutton" onClick={handleSubmit}>Submit</Link>
       </form>
       
     </div>

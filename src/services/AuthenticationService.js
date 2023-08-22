@@ -56,6 +56,23 @@ because they have their own separate agenda.
       throw new Error('An error occurred during login.');
     }
   }
+
+  static async openAccount(customer) {
+    try {
+      const response = await axios.post('http://localhost:8085/obs/api/6/openAccount', customer);
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return true; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
 }
 
 export default AuthenticationService;
