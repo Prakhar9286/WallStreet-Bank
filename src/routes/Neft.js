@@ -1,16 +1,17 @@
 import React, {useState} from "react";
 import styles from './Neft.module.css'
-
+import AuthenticationService from "../services/AuthenticationService";
 
 
 export default function Neft(){
     const [formData, setFormData] = useState({
-        fromAcc: '',
-        toAcc: '',
+        fromAc: '',
+        toAc: '',
         amount:'',
-        transactionDate:'',
+        date:'',
         maturityInstruction:'',
-        remark:'',
+        remarks:'',
+        transactionTypeId : "NEFT"
     });
 
     const handleChange = (e) =>{
@@ -25,17 +26,46 @@ export default function Neft(){
 
     const handleReset=()=>{
         setFormData({
-            fromAcc: '',
-            toAcc: '',
+            fromAc: '',
+            toAc: '',
             amount:'',
-            transactionDate:'',
+            date:'',
             maturityInstruction:'',
-            remark:'',
+            remarks:'',
         });
     };
-
+    const handleTransaction = async () => {
+        if (!formData.amount || !formData.fromAc || !formData.toAc) {
+        //   setErrorMessage('Please enter both email and password.');
+          return;
+        }
+    
+        // const customer = {
+        //   "custId" : custId,
+        //   "password" : pass
+        // };
+    
+    try {
+        const loginSuccess = await AuthenticationService.executeTransaction(formData);
+        // console.log('API response:', loginSuccess.data); // Add this line
+        if (loginSuccess) {
+            console.log("Login successful!")
+        //   setSuccessMessage('Login successful. Redirecting...');
+        //   setTimeout(() => {
+        //     history("/"+custId+"/openAccount"); // navigates to product Component
+        //   }, 500);
+        } else {
+          console.log('Invalid email or password.');
+        }
+      } catch (error) {
+        console.error('Login error', error);
+        // setErrorMessage('An error occurred during login.');
+      }
+      
+      };
     const handleContinue = ()=>{
         console.log('Continuing to the next step');
+        handleTransaction();
     };
 
 
@@ -45,16 +75,16 @@ export default function Neft(){
             <form>
             <label>
                 From account:
-                <input type="text" name="fromAcc" value={formData.fromAcc} className={styles.inputfield} onChange={handleChange}/>
+                <input type="text" name="fromAc" value={formData.fromAc} className={styles.inputfield} onChange={handleChange}/>
                 To account:
-                <input type="text" name="toAcc" value={formData.toAcc} className={styles.inputfield} onChange={handleChange}/>
+                <input type="text" name="toAc" value={formData.toAc} className={styles.inputfield} onChange={handleChange}/>
                 Amount
                 <input type="text" name="amount" value={formData.amount}  className={styles.inputfield} onChange={handleChange}/>
                 Transaction Date
-                <input type="text" name="transactionDate" value={formData.transactionDate}  className={styles.inputfield} onChange={handleChange}/>
+                <input type="text" name="date" value={formData.date}  className={styles.inputfield} onChange={handleChange}/>
                 
                 Remark
-                <input type="text" name="remark" value={formData.remark}  className={styles.inputfield} onChange={handleChange}/>
+                <input type="text" name="remarks" value={formData.remarks}  className={styles.inputfield} onChange={handleChange}/>
 
             </label>
 

@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import apple from "../assets/avatar.jpg"
-
-function History() {
+import Table from './Table'
+const History = (props)=> {
     return (
         <Section>
         <div className="orders">
@@ -12,11 +12,14 @@ function History() {
               
           </div>
           <div> 
-          <h6>Transection of last months</h6> 
+          <h6>Transaction of last month </h6> 
             
           </div>
         </div>
         <div className="orders__table">
+            <Table customerId={props.customerId}/>
+        </div>
+        {/* <div className="orders__table">
             <table>
             <tr>
               <td><img src={apple} alt="" /></td>
@@ -27,7 +30,7 @@ function History() {
             </tr>
             
             </table>
-        </div>
+        </div> */}
         </div>
         </Section>
     )

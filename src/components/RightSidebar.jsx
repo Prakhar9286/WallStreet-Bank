@@ -10,9 +10,9 @@ function RightSidebar() {
         <Section>
             <div className="grid">
             <Notification />
-            <Card />
+            {/* <Card /> */}
             <Activity />
-            <Payment />
+            {/* <Payment /> */}
 
             </div>
         </Section>

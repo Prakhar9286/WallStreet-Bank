@@ -4,21 +4,25 @@ import Navbar from './Navbar'
 import Analytic from './Analytic'
 import Balance from './Balance'
 import History from './History'
-function Dashboard() {
+import { useParams } from 'react-router-dom'
+import RightSidebar from './RightSidebar'
+const Dashboard = (p) => {
+    const {customerId} = useParams();
     return (
         <Section>
            
             <div className="grid">        
-                    <Navbar />
+                    {/* <Navbar /> */}
                     <Analytic />
+                    {/* <RightSidebar/> */}
                     <Balance />
-                    <History />    
+                    <History customerId={customerId}/>    
             </div>
         </Section>
     )
 }
 
-export default Dashboard
+export default Dashboard;
 const Section = styled.section `
 margin-left: 5vw;
 margin-right: 14px;

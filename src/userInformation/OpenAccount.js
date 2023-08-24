@@ -3,20 +3,24 @@ import { BasicInformation } from './BasicInformation';
 import { Address } from './Address';
 import {PermanentAddress} from './PermanentAddress';
 import AuthenticationService from '../services/AuthenticationService';
+import { useNavigate, useParams } from 'react-router-dom';
 function OpenAccount() {
+    const history = useNavigate();
     const [currentStep, setCurrentStep] = useState(1);
     const [formData, setFormData] = useState({});
+    const {customerId} = useParams();
     const handleOpenAccount = async (data) => {
     
     try {
-        const openAccountSuccess = await AuthenticationService.openAccount(data);
-        console.log('API response:', openAccountSuccess.data); // Add this line
+        const openAccountSuccess = await AuthenticationService.openAccount(data,customerId);
+        // console.log('API response:', openAccountSuccess.data); // Add this line
         if (openAccountSuccess) {
             console.log("Account opening successful!")
+            alert("Account opening successful. Account No. : "+openAccountSuccess)
         //   setSuccessMessage('Login successful. Redirecting...');
-        //   setTimeout(() => {
-        //     history('/netbanking'); // navigates to product Component
-        //   }, 2000);
+          setTimeout(() => {
+            history('/login'); // navigates to product Component
+          }, 200);
         } else {
           console.log('Invalid email or password.');
         }
