@@ -1,15 +1,22 @@
-import React from 'react'
-import styled from 'styled-components'
-import Navbar from './Navbar'
-import Analytic from './Analytic'
-import Balance from './Balance'
-import History from './History'
+import React from 'react';
+import styled from 'styled-components';
+import Navbar from './Navbar.jsx';
+import Analytic from './Analytic';
+import Balance from './Balance';
+import History from './History';
+import RightSidebar from './RightSidebar.jsx';
+import Sidebar from './Sidebar.jsx';
+
 function Dashboard() {
     return (
-        <Section>
-           
-            <div className="grid">        
-                    <Navbar />
+        <Section className="layout">
+            <div className="leftgrid">
+                <Sidebar></Sidebar>
+            </div>
+            <div className='rightgrid'>
+                <RightSidebar></RightSidebar>
+            </div>
+            <div className="maingrid">        
                     <Analytic />
                     <Balance />
                     <History />    
@@ -25,10 +32,22 @@ margin-right: 14px;
 padding: 2rem;
 height: 60rem;
 background-color: #F5F5FD;
-.grid{ 
+.layout{
+    display: flex;
+}
+
+.leftgrid{
+    width: 20%;
+}
+
+.rightgrid{
+    width: 25%;
+}
+
+.maingrid{ 
     margin-top: 0.5rem;
     z-index: 2;
-    width: 80%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     gap: 1rem;

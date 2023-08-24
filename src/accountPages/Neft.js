@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import styles from '../styles/Rtgs.module.css'
+import styles from './Neft.module.css'
 
-export default function Rtgs(){
+
+
+export default function Neft(){
     const [formData, setFormData] = useState({
         fromAcc: '',
         toAcc: '',
@@ -38,8 +40,8 @@ export default function Rtgs(){
 
 
     return (
-        <div className={styles.rtgsform}>
-            <h2>RTGS page</h2>
+        <div className={styles.neftform}>
+            <h2>NEFT page</h2>
             <form>
             <label>
                 From account:
@@ -56,7 +58,11 @@ export default function Rtgs(){
 
             </label>
 
-
+            Please note
+            <br></br>
+            1. Transactions will be executed on the next working day if they are scheduled for Sundays, National Holidays
+            NEFT Holidays (as declared by RBI)
+           <br></br> 2. Timings for NEFT: Monday - Saturday (except 2nd and 4th Saturday) 4:00 AM - 6:30 AM
 
             <div className={styles.buttoncontainer}>
                 <button type="button" onClick={handleSave}>Save</button>

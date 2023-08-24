@@ -1,7 +1,9 @@
 import React, {useState} from "react";
-import styles from '../styles/Rtgs.module.css'
+import styles from './Imps.module.css'
 
-export default function Rtgs(){
+
+
+export default function Imps(){
     const [formData, setFormData] = useState({
         fromAcc: '',
         toAcc: '',
@@ -38,8 +40,8 @@ export default function Rtgs(){
 
 
     return (
-        <div className={styles.rtgsform}>
-            <h2>RTGS page</h2>
+        <div className={styles.impsform}>
+            <h2>IMPS page</h2>
             <form>
             <label>
                 From account:
@@ -50,13 +52,12 @@ export default function Rtgs(){
                 <input type="text" name="amount" value={formData.amount}  className={styles.inputfield} onChange={handleChange}/>
                 Transaction Date
                 <input type="text" name="transactionDate" value={formData.transactionDate}  className={styles.inputfield} onChange={handleChange}/>
-                
+                Maturity Instruction:
+                <input type="text" name="maturityInstruction" value={formData.maturityInstruction} className={styles.inputfield}  onChange={handleChange}/>
                 Remark
                 <input type="text" name="remark" value={formData.remark}  className={styles.inputfield} onChange={handleChange}/>
 
             </label>
-
-
 
             <div className={styles.buttoncontainer}>
                 <button type="button" onClick={handleSave}>Save</button>

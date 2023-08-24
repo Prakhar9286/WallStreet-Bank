@@ -1,7 +1,8 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import styled from "styled-components";
-function Balance() {
+
+function AdminBalance() {
     return (
         <Section>
             <div className="sales">
@@ -42,7 +43,7 @@ function Balance() {
     )
 }
 
-export default Balance
+export default AdminBalance
 const data = [
     {
       name: 'Page A',

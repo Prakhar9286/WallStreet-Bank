@@ -6,7 +6,7 @@ import { BiTransfer } from "react-icons/bi";
 import { BsBank } from "react-icons/bs";
 import { GiTakeMyMoney } from "react-icons/gi";
 
-function Analytic() {
+function AdminAnalytic() {
     return (
         <Section>
             <div className="analytic">
@@ -82,7 +82,7 @@ function Analytic() {
     )
 }
 
-export default Analytic
+export default AdminAnalytic
 const Section = styled.section `
     display: flex;
     grid-template-columns: repeat(4, 1fr);

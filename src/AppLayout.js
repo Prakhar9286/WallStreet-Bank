@@ -13,6 +13,8 @@ import NetBanking from './routes/NetBanking';
 // import { Address } from './userInformation/Address';
 // import { PermanentAddress } from './userInformation/PermanentAddress';
 import OpenAccount from './userInformation/OpenAccount';
+import { AdminSystem } from './adminServices/AdminSystem';
+import { AdminAccountUserServices } from './adminServices/AdminAccountUserServices';
 
 export default function AppLayout() {
     return (
@@ -29,6 +31,8 @@ export default function AppLayout() {
             {/* <Route path="basicinformation" element={<BasicInformation/>} /> */}
             <Route path="netbanking" element={<NetBanking/>} />
             <Route path="openAccount" element={<OpenAccount/>} />
+            <Route path="adminSystem" element={<AdminSystem/>}></Route>
+            <Route path="adminuserservices" element={<AdminAccountUserServices/>}></Route>
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>

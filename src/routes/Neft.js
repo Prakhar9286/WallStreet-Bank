@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import styles from './Neft.module.css'
-
-
+import styles from '../styles/Neft.module.css';
 
 export default function Neft(){
     const [formData, setFormData] = useState({

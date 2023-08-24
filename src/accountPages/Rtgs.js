@@ -1,5 +1,7 @@
 import React, {useState} from "react";
-import styles from '../styles/Rtgs.module.css'
+import styles from './Rtgs.module.css'
+
+
 
 export default function Rtgs(){
     const [formData, setFormData] = useState({

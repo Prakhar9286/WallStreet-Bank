@@ -1,0 +1,26 @@
+.search-container { 
+    float: none;
+    /* padding: 6px 10px; */
+    margin-top: 8px;
+    /* margin-right: 5px; */
+    /* background: #ddd; */
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    height: 90px;
+    width: 600px;
+}
+
+.inputCol{
+    height: 45px;
+}
+
+.submitBtn {
+    border-radius: 10px;
+    padding-right: 10px;
+    margin-left: 10px;
+    height: 45px;
+    width: 95px;
+    font-weight: bold;
+    text-align: center;
+}

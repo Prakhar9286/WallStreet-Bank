@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './Imps.module.css'
+import styles from '../styles/Imps.module.css'
 
 
 

@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import apple from "../assets/avatar.jpg"
 
-function History() {
+function AdminHistory() {
     return (
         <Section>
         <div className="orders">
@@ -33,7 +33,7 @@ function History() {
     )
 }
 
-export default History
+export default AdminHistory
 const Section = styled.section`
 
 .orders {
