@@ -109,6 +109,41 @@ because they have their own separate agenda.
     }
   }
 
+  static async forgotUserId(accountNo) {
+    try {
+      console.log(accountNo);
+      const response = await axios.get("http://localhost:8085/obs/api/forgotCustId/"+accountNo);
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return response.data; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
+
+  static async getBalance(custId) {
+    try {
+      console.log(custId);
+      const response = await axios.get("http://localhost:8085/obs/account/"+custId+"/getBalance");
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return response.data; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
 
 }
 

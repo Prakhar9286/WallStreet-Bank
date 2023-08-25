@@ -15,7 +15,7 @@ const Dashboard = (p) => {
                     {/* <Navbar /> */}
                     <Analytic />
                     {/* <RightSidebar/> */}
-                    <Balance />
+                    <Balance customerId = {customerId}/>
                     <History customerId={customerId}/>    
             </div>
         </Section>

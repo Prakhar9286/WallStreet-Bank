@@ -13,12 +13,13 @@ import { Login } from './routes/Login';
 import NetBanking from './routes/NetBanking';
 // import { Address } from './userInformation/Address';
 // import { PermanentAddress } from './userInformation/PermanentAddress';
-import Dashboard from './components/Dashboard';
 import OpenAccount from './userInformation/OpenAccount';
 import Neft from './routes/Neft';
 import DashboardWrapper from './components/DashboardWrapper';
 import Rtgs from './routes/Rtgs';
-import Imps from './routes/Imps'
+import Imps from './routes/Imps';
+import ForgotUserID from './ForgotUserID'
+import { ForgotPassword } from './ForgotPassword';
 export default function AppLayout(){
     return (
       <BrowserRouter>
@@ -39,6 +40,8 @@ export default function AppLayout(){
             <Route path="neft" element={<Neft/>} />
             <Route path="rtgs" element={<Rtgs/>} />
             <Route path="imps" element={<Imps/>} />
+            <Route path="forgotUserId" element={<ForgotUserID/>} />
+            <Route path="forgotPassword" element={<ForgotPassword/>} />
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>
