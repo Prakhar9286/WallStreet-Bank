@@ -1,0 +1,29 @@
+.transfersuccessfullcontainer{
+    text-align: center;
+    margin: 20px;
+}
+
+.tranferdetailstable{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+
+.transferdetailstable th, .tranferdetailstable td{
+    border: 1px solid #dddddd;
+    padding: 8px;
+}
+
+.transferdetailstable th{
+    background-color: #f2f2f2;
+}
+
+.transferdetailstable tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+
+.transferdetailstabletr:hover{
+    background-color: #ddd;
+}

@@ -29,10 +29,22 @@ margin-right: 14px;
 padding: 2rem;
 height: 60rem;
 background-color: #F5F5FD;
-.grid{ 
+.layout{
+    display: flex;
+}
+
+.leftgrid{
+    width: 20%;
+}
+
+.rightgrid{
+    width: 25%;
+}
+
+.maingrid{ 
     margin-top: 0.5rem;
     z-index: 2;
-    width: 80%;
+    width: 55%;
     display: flex;
     flex-direction: column;
     gap: 1rem;

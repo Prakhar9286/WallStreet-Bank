@@ -95,7 +95,8 @@ input {
 }
 
 .footer{
-  position: fixed;
+  margin-top: auto;
+  position: fixed; 
   left: 0;
   bottom: 0;
   width: 100%;
@@ -124,7 +125,8 @@ input {
   text-align: center;
   padding-top: 10px;
   padding-bottom: 0%;
-  color: #7439db;
+  color: #170c2b;
+  font-size: bold;
 }
 
 .box-container{
