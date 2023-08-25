@@ -7,16 +7,19 @@ import Contact from './routes/Contact';
 import Home from './routes/Home';
 import Navbar from './components/Navbar';
 import { Register } from './routes/Register';
+
 import { Login } from './routes/Login';
 // import { BasicInformation }from './userInformation/BasicInformation';
 import NetBanking from './routes/NetBanking';
 // import { Address } from './userInformation/Address';
 // import { PermanentAddress } from './userInformation/PermanentAddress';
+import Dashboard from './components/Dashboard';
 import OpenAccount from './userInformation/OpenAccount';
-import { AdminSystem } from './adminServices/AdminSystem';
-import { AdminAccountUserServices } from './adminServices/AdminAccountUserServices';
-
-export default function AppLayout() {
+import Neft from './routes/Neft';
+import DashboardWrapper from './components/DashboardWrapper';
+import Rtgs from './routes/Rtgs';
+import Imps from './routes/Imps'
+export default function AppLayout(){
     return (
       <BrowserRouter>
         <Routes>
@@ -30,9 +33,12 @@ export default function AppLayout() {
             <Route path="login" element={<Login/>} />
             {/* <Route path="basicinformation" element={<BasicInformation/>} /> */}
             <Route path="netbanking" element={<NetBanking/>} />
-            <Route path="openAccount" element={<OpenAccount/>} />
-            <Route path="adminSystem" element={<AdminSystem/>}></Route>
-            <Route path="adminuserservices" element={<AdminAccountUserServices/>}></Route>
+            <Route path="/:customerId/openAccount" element={<OpenAccount/>} />
+            {/* <Route exact path="/:customerId/dashboard" element={<Dashboard/>} /> */}
+            <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
+            <Route path="neft" element={<Neft/>} />
+            <Route path="rtgs" element={<Rtgs/>} />
+            <Route path="imps" element={<Imps/>} />
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>

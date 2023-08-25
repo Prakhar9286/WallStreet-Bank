@@ -57,9 +57,27 @@ because they have their own separate agenda.
     }
   }
 
-  static async openAccount(customer) {
+  static async openAccount(customer,customerId) {
     try {
-      const response = await axios.post('http://localhost:8085/obs/api/6/openAccount', customer);
+      const response = await axios.post("http://localhost:8085/obs/api/"+customerId+"/openAccount", customer);
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      return response.data;
+      // if (response.data) {
+      //   // Call the setSessionAttribute method to store the session token or user info
+      //   this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+      //   return true; // Return true for successful login
+      // } else {
+      //   return false; // Return false for unsuccessful login
+      // }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
+
+  static async executeTransaction(transaction) {
+    try {
+      const response = await axios.post('http://localhost:8085/obs/transaction/fundTransfer', transaction);
       console.log('SAPI response:', response.data +"Hello"+response.data.success); 
       if (response.data) {
         // Call the setSessionAttribute method to store the session token or user info
@@ -73,6 +91,25 @@ because they have their own separate agenda.
       throw new Error('An error occurred during login.');
     }
   }
+
+  static async getRecentTransaction(customerId) {
+    try {
+      const response = await axios.get("http://localhost:8085/obs/transaction/"+customerId+"/getRecentTransactions");
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return response.data; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
+
+
 }
 
 export default AuthenticationService;

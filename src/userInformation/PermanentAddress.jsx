@@ -11,6 +11,7 @@ export const PermanentAddress = ({onSubmit}) => {
         state: "",
         city: "",
         pincode: "",
+        addressType : true
         });
 
         const inputs = [

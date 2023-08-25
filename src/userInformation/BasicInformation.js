@@ -73,7 +73,7 @@ export const BasicInformation = ({onNext}) => {
       },
       {
         id: 8,
-        name: "panNo",
+        name: "pan",
         type: "text",
         label: "PAN Number",
         required: true,

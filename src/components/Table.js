@@ -2,22 +2,47 @@ import "../styles/Table.css";
 import fakeData from "../MOCK_DATA.json";
 import * as React from "react";
 import { useTable } from "react-table";
+import AuthenticationService from "../services/AuthenticationService";
 
-function Table() {
-  const data = React.useMemo(() => fakeData, []);
+const Table = (props) => {
+  const [fetchedData,setFetchedData] = React.useState([]);
+  // const fetchData = () => {
+  //   return getTransaction();
+  // }
+  const getTransaction = async () => {
+    try {
+      console.log("Customer id",props.customerId)
+      const response  = await AuthenticationService.getRecentTransaction(props.customerId);
+      console.log(response);
+      return response;
+    }catch(error) {
+      console.log("Something went wrong while fetching transactions")
+    }
+  }
+  const getData = () => {
+    getTransaction().then((response) => {
+      setFetchedData(response);
+    })
+  }
+  React.useEffect(() => {
+    
+    getData();
+    // console.log("This ",d)
+  },[]);
+  const data = React.useMemo(() => fetchedData, [fetchedData]);
   const columns = React.useMemo(
     () => [
       {
         Header: "TransactionId",
-        accessor: "id",
+        accessor: "transactionId",
       },
       {
         Header: "FromAccount",
-        accessor: "from account",
+        accessor: "fromAc",
       },
       {
         Header: "ToAccount",
-        accessor: "To_Account",
+        accessor: "toAc",
       },
       {
         Header: "Date",
@@ -29,7 +54,7 @@ function Table() {
       },
       {
         Header: "TransactionType",
-        accessor: "transactiontype",
+        accessor: "transactionTypeId",
       },
       {
         Header:"Remarks",

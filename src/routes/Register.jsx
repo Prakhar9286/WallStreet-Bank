@@ -1,9 +1,10 @@
 import { useState } from "react";
 import "../styles/Register.css";
 import { RegisterForm } from "./RegisterForm";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthenticationService from "../services/AuthenticationService";
 export const Register = (props) => {
+  const history = useNavigate();
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -72,10 +73,11 @@ try {
     console.log('API response:', registerSuccess.data); // Add this line
     if (registerSuccess) {
         console.log("Register successful!")
+        alert("Registration is successful. Your Customer ID is "+registerSuccess.data)
     //   setSuccessMessage('Login successful. Redirecting...');
-    //   setTimeout(() => {
-    //     history('/netbanking'); // navigates to product Component
-    //   }, 2000);
+      setTimeout(() => {
+        history("/"+registerSuccess.data+"/openAccount"); // navigates to product Component
+      }, 200);
     } else {
       console.log('Invalid email or password.');
     }

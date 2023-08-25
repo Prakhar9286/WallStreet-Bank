@@ -11,6 +11,7 @@ export const Address = ({onNext}) => {
     "state": "",
     "city": "",
     "pincode": 0,
+    "addressType" : false
   });
 
   const inputs = [

@@ -28,8 +28,8 @@ public class CustomerService {
 		return crepo.save(c);
 	}
 	
-	public Optional<Customer> loginCustomer(String email) {
-		return crepo.findByEmail(email);
+	public Optional<Customer> loginCustomer(Long custId) {
+		return crepo.findById(custId);
 	}
 	
 	public Optional<Customer> getCustomer(Account account) {

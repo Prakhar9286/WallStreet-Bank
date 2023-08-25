@@ -68,12 +68,12 @@ public class CustomerController {
 	@PostMapping("/login")
 	public Boolean loginCustomer(@Validated @RequestBody Customer customer) throws ResourceNotFoundException {
 		Boolean a = false;
-		String email = customer.getEmail();
+		Long custId = customer.getCustId();
 		String password = customer.getPassword();
-		Customer c = cservice.loginCustomer(email).orElseThrow(() -> 
+		Customer c = cservice.loginCustomer(custId).orElseThrow(() -> 
 		new ResourceNotFoundException("Customer not found "));
 		
-		if(email.equals(c.getEmail()) && password.equals(c.getPassword())) {
+		if(c != null && password.equals(c.getPassword())) {
 			a = true;
 		}
 		return a;

@@ -1,31 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import Navbar from './Navbar.jsx';
-import Analytic from './Analytic';
-import Balance from './Balance';
-import History from './History';
-import RightSidebar from './RightSidebar.jsx';
-import Sidebar from './Sidebar.jsx';
-
-function Dashboard() {
+import React from 'react'
+import styled from 'styled-components'
+import Navbar from './Navbar'
+import Analytic from './Analytic'
+import Balance from './Balance'
+import History from './History'
+import { useParams } from 'react-router-dom'
+import RightSidebar from './RightSidebar'
+const Dashboard = (p) => {
+    const {customerId} = useParams();
     return (
-        <Section className="layout">
-            <div className="leftgrid">
-                <Sidebar></Sidebar>
-            </div>
-            <div className='rightgrid'>
-                <RightSidebar></RightSidebar>
-            </div>
-            <div className="maingrid">        
+        <Section>
+           
+            <div className="grid">        
+                    {/* <Navbar /> */}
                     <Analytic />
+                    {/* <RightSidebar/> */}
                     <Balance />
-                    <History />    
+                    <History customerId={customerId}/>    
             </div>
         </Section>
     )
 }
 
-export default Dashboard
+export default Dashboard;
 const Section = styled.section `
 margin-left: 5vw;
 margin-right: 14px;
