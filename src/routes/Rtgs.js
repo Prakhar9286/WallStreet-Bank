@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './Rtgs.module.css'
+import styles from '../styles/Rtgs.module.css'
 
 import AuthenticationService from "../services/AuthenticationService";
 

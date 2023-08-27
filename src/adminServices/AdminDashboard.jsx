@@ -1,23 +1,35 @@
 import React from 'react';
 import styled from 'styled-components';
 // import AdminAnalytic from './AdminAnalytic';
-import AdminBalance from './AdminBalance';
-import AdminHistory from './AdminHistory';
+// import AdminBalance from './AdminBalance';
+// import AdminHistory from './AdminHistory';
 import AdminSidebar from './AdminSidebar.jsx';
 import AdminRightSidebar from './AdminRightSidebar';
+import { AdminAccountUserServices } from './AdminAccountUserServices';
+import Navbar from '../components/Navbar.jsx';
 
 function AdminDashboard() {
     return (
     <Section className="layout">
+        <Navbar />
+
+        <div className="search-box">
+            <AdminAccountUserServices />
+        </div>
+
         <div className="leftgrid">
             <AdminSidebar/>
         </div>
         <div className='rightgrid'>
             <AdminRightSidebar />
         </div>
-        <div className="maingrid">        
+        {/* <div className="maingrid">        
                 <AdminHistory />    
-        </div>
+        </div> */}
+
+        {/* <div className="search-box">
+            <AdminAccountUserServices />
+        </div> */}
     </Section>
     )
 }
@@ -27,10 +39,11 @@ const Section = styled.section `
 margin-left: 5vw;
 margin-right: 14px;
 padding: 2rem;
-height: 60rem;
+height: 30rem;
 background-color: #F5F5FD;
 .layout{
     display: flex;
+    overflow: auto;
 }
 
 .leftgrid{

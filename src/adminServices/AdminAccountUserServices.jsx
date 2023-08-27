@@ -15,7 +15,7 @@ export const AdminAccountUserServices = () => {
             <AdminRightSidebar />
         </div>
 
-        <div class="search-container">
+        <div className="search-container">
             <form action="/">
             <input className="inputCol" type="text" placeholder="Search.." name="search" />
             <button className='submitBtn' type="submit">Submit</button>

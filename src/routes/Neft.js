@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from './Neft.module.css'
+import styles from '../styles/Neft.module.css'
 import AuthenticationService from "../services/AuthenticationService";
 
 
