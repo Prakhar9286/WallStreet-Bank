@@ -5,15 +5,18 @@ import AdminBalance from './AdminBalance';
 import AdminHistory from './AdminHistory';
 import AdminSidebar from './AdminSidebar.jsx';
 import AdminRightSidebar from './AdminRightSidebar';
-
+import { AdminAccountUserServices } from './AdminAccountUserServices';
 function AdminDashboard() {
     return (
     <Section className="layout">
-        <div className="leftgrid">
-            <AdminSidebar/>
-        </div>
-        <div className='rightgrid'>
-            <AdminRightSidebar />
+    {/* //     <div className="leftgrid">
+    //         <AdminSidebar/>
+    //     </div>
+    //     <div className='rightgrid'>
+    //         <AdminRightSidebar />
+    //     </div> */}
+        <div>
+            <AdminAccountUserServices />
         </div>
         <div className="maingrid">        
                 <AdminHistory />    

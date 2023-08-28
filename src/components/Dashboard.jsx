@@ -13,7 +13,7 @@ const Dashboard = (p) => {
            
             <div className="grid">        
                     {/* <Navbar /> */}
-                    <Analytic />
+                    <Analytic customerId = {customerId}/>
                     {/* <RightSidebar/> */}
                     <Balance customerId = {customerId}/>
                     <History customerId={customerId}/>    

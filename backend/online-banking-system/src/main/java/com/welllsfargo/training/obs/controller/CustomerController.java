@@ -89,4 +89,10 @@ public class CustomerController {
 		Long customerId = customer.getCustId();
 		return ResponseEntity.ok(customerId.toString());
 	}
+
+	@GetMapping("/{customerId}/getCustomerDetails")
+	public ResponseEntity<Customer> getCustomerDetails(@PathVariable Long customerId) {
+		Customer c = cservice.getCustomer(customerId).get();
+		return ResponseEntity.ok(c);
+	}
 }

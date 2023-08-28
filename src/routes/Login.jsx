@@ -24,9 +24,17 @@ export const Login = (props) => {
         if (loginSuccess) {
             console.log("Login successful!")
         //   setSuccessMessage('Login successful. Redirecting...');
-          setTimeout(() => {
-            history("/"+custId+"/dashboard"); // navigates to product Component
-          }, 500);
+          if(custId == 9999) {
+            setTimeout(() => {
+              history("/admin"); // navigates to product Component
+            }, 500);
+          }
+          else {
+            setTimeout(() => {
+              history("/"+custId+"/dashboard"); // navigates to product Component
+            }, 500);
+          }
+          
         } else {
           console.log('Invalid email or password.');
         }

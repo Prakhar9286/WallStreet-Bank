@@ -1,8 +1,9 @@
 import React, {useState} from "react";
-import styles from './Rtgs.module.css'
+import styles from '../styles/Rtgs.module.css'
 
 import AuthenticationService from "../services/AuthenticationService";
-
+import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 export default function Rtgs(){
     const [formData, setFormData] = useState({
         fromAc: '',
@@ -13,6 +14,8 @@ export default function Rtgs(){
         remarks:'',
         transactionTypeId : "RTGS"
     });
+    const {id} = useParams();
+    const history = useNavigate();
     const handleTransaction = async () => {
         if (!formData.amount || !formData.fromAc || !formData.toAc) {
         //   setErrorMessage('Please enter both email and password.');
@@ -29,6 +32,7 @@ export default function Rtgs(){
         // console.log('API response:', loginSuccess.data); // Add this line
         if (loginSuccess) {
             console.log("Login successful!")
+            history("/transactionSuccessful/"+id,{state : {transactionMsg : loginSuccess}})
         //   setSuccessMessage('Login successful. Redirecting...');
         //   setTimeout(() => {
         //     history("/"+custId+"/openAcount"); // navigates to product Component
@@ -91,7 +95,7 @@ export default function Rtgs(){
 
 
             <div className={styles.buttoncontainer}>
-                <button type="button" onClick={handleSave}>Save</button>
+                {/* <button type="button" onClick={handleSave}>Save</button> */}
                 <button type="button" onClick={handleReset}>Reset</button>
                 <button type="button" onClick={handleContinue}>Continue</button>
             </div>

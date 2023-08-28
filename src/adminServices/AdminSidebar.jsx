@@ -9,10 +9,12 @@ import { AiOutlineFileText } from "react-icons/ai";
 import { AiOutlineDotChart } from "react-icons/ai";
 
 import { BsCircleFill } from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 
 
 function AdminSidebar() {
     const [currentLink, setCurrentLink] = useState(1);
+    const history = useNavigate();
     return (
         <Section>
             <div className="top">
@@ -26,21 +28,25 @@ function AdminSidebar() {
                         <ul>
                             <li
                             className={currentLink === 1 ? "active" : "none"}
-                            onClick={() => setCurrentLink(1)}
+                            onClick={() => {history("/admin");
+                            setCurrentLink(1);
+                        }}
                             >
-                                <a href="#">
+                                {/* <a href="/admin"> */}
                                     <BiHomeAlt />
                                     
-                                </a>
+                                
                             </li>
                             <li
                             className={currentLink === 2 ? "active" : "none"}
-                            onClick={() => setCurrentLink(2)}
+                            onClick={() => {history("/admin/transactions")
+                            setCurrentLink(2)
+                        }}
                             >
-                                <a href="#">
+                                {/* <a href="transactions"> */}
                                     <AiOutlineFundProjectionScreen />
                                     
-                                </a>
+                               
                             </li>
                             <li
                             className={currentLink === 3 ? "active" : "none"}

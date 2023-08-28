@@ -42,7 +42,20 @@ because they have their own separate agenda.
 */ 
   static async login(dealer) {
     try {
-      const response = await axios.post('http://localhost:8085/obs/api/login', dealer);
+      let response;
+      console.log(dealer)
+      if(dealer.custId == 9999) {
+        const admin = {
+          "adminId" : dealer.custId,
+          "password" : dealer.password
+        }
+        console.log(admin);
+        response = await axios.post('http://localhost:8085/obs/admin/login', admin);
+      }
+      else {
+
+        response = await axios.post('http://localhost:8085/obs/api/login', dealer);
+      }
       console.log('SAPI response:', response.data +"Hello"+response.data.success); 
       if (response.data === true) {
         // Call the setSessionAttribute method to store the session token or user info
@@ -82,7 +95,7 @@ because they have their own separate agenda.
       if (response.data) {
         // Call the setSessionAttribute method to store the session token or user info
         this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
-        return true; // Return true for successful login
+        return response.data; // Return true for successful login
       } else {
         return false; // Return false for unsuccessful login
       }
@@ -95,6 +108,23 @@ because they have their own separate agenda.
   static async getRecentTransaction(customerId) {
     try {
       const response = await axios.get("http://localhost:8085/obs/transaction/"+customerId+"/getRecentTransactions");
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return response.data; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
+
+  static async getAllTransactions(customerId) {
+    try {
+      const response = await axios.get("http://localhost:8085/obs/transaction/"+customerId+"/getAllTransactions");
       console.log('SAPI response:', response.data +"Hello"+response.data.success); 
       if (response.data) {
         // Call the setSessionAttribute method to store the session token or user info
@@ -131,6 +161,28 @@ because they have their own separate agenda.
     try {
       console.log(custId);
       const response = await axios.get("http://localhost:8085/obs/account/"+custId+"/getBalance");
+      console.log('SAPI response:', response.data +"Hello"+response.data.success); 
+      if (response.data) {
+        // Call the setSessionAttribute method to store the session token or user info
+        this.setSessionAttribute('sessionToken', response.data.sessionToken); // Adjust as needed
+        return response.data; // Return true for successful login
+      } else {
+        return false; // Return false for unsuccessful login
+      }
+    } catch (error) {
+      console.error('Login error', error);
+      throw new Error('An error occurred during login.');
+    }
+  }
+
+  
+
+  static async getUsersAdmin(fname) {
+    try {
+      const usersearch = {
+        "fname" : fname
+      }
+      const response = await axios.post("http://localhost:8085/obs/admin/usersearch",usersearch);
       console.log('SAPI response:', response.data +"Hello"+response.data.success); 
       if (response.data) {
         // Call the setSessionAttribute method to store the session token or user info

@@ -20,6 +20,9 @@ import Rtgs from './routes/Rtgs';
 import Imps from './routes/Imps';
 import ForgotUserID from './ForgotUserID'
 import { ForgotPassword } from './ForgotPassword';
+import AdminDashboard from './adminServices/AdminDashboard';
+import TransferSuccessfulPage from './routes/TransferSuccessfulPage';
+import AdminTransactionService from './adminServices/AdminTransactionService';
 export default function AppLayout(){
     return (
       <BrowserRouter>
@@ -37,11 +40,14 @@ export default function AppLayout(){
             <Route path="/:customerId/openAccount" element={<OpenAccount/>} />
             {/* <Route exact path="/:customerId/dashboard" element={<Dashboard/>} /> */}
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
-            <Route path="neft" element={<Neft/>} />
-            <Route path="rtgs" element={<Rtgs/>} />
-            <Route path="imps" element={<Imps/>} />
+            <Route path="neft/:id" element={<Neft/>} />
+            <Route path="rtgs/:id" element={<Rtgs/>} />
+            <Route path="imps/:id" element={<Imps/>} />
             <Route path="forgotUserId" element={<ForgotUserID/>} />
             <Route path="forgotPassword" element={<ForgotPassword/>} />
+            <Route path="admin" element={<AdminDashboard/>} />
+            <Route path="admin/transactions" element={<AdminTransactionService/>} />
+            <Route path="transactionSuccessful/:id" element={<TransferSuccessfulPage/>} />
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>
