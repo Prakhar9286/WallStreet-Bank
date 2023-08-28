@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/login.css";
 import { Link, useNavigate } from "react-router-dom";
 import AuthenticationService from "../services/AuthenticationService";
+
 export const Login = (props) => {
     const history = useNavigate();
     const [custId, setCustId] = useState(0);
@@ -52,6 +53,8 @@ export const Login = (props) => {
                 <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" placeholder="********" id="password" name="password" required="true"/>
                 <Link className="submitbtn" onClick={handleLogin}>Log In</Link>
                 <Link className="link-btn" to='/register'>Don't have an account? Register here</Link>
+                {/* <Link className="link-btn" to='/forgotpassword'>Forgot Password</Link>
+                <Link className="link-btn" to='/forgotuserid'>Forgot Username</Link> */}
             </form>
         </div>
     )

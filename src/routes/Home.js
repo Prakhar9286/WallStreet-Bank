@@ -1,8 +1,11 @@
 import React from "react";
 // import {useNavigate} from 'react-router-dom';
 // import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../styles/Home.css";
-import HomeBoxes from "../homeComponents/HomeBoxes";
+import "../homeComponents/homeComponents.css";
+// import HomeBoxes from "../homeComponents/HomeBoxes";
+import "../App.css";
 
 export default function Home(){
     // const [noAccount, setAccount] = useState('Home');
@@ -29,7 +32,34 @@ export default function Home(){
 
     return (
         <div className="home">
-        <h1 className="intro">Welcome to WallStreet</h1>
+            <h1 className="intro">Welcome to WallStreet</h1>
+            {/* <HomeBoxes t1="Open Zero Balance Account" t2="Apply for Credit Card" t3="Whatsapp Banking" t4="NetBanking" t5="Low interest Loans"/> */}
+            <div className="mainBox">
+            <div className="accinfo1">
+                <Link className="h51" to="/register">Open Zero Balance Account</Link>
+                <Link className="h52" to="/login">Apply for Credit Card</Link>
+                <Link className="h53" to="/login">Whatsapp Banking</Link>
+                <Link className="h54" to="/login">NetBanking</Link>
+                <Link className="h55" to="/login">Low interest Loans</Link>
+            </div>
+
+            <div className="accinfo1">
+                <Link className="h51" to="/login">Kanya Samruddhi Yojna</Link>
+                <Link className="h52" to="/login">Atal Pension Yojna</Link>
+                <Link className="h53" to="/login">Open a NPS Account</Link>
+                <Link className="h54" to="/login">Life After Retirement</Link>
+                <Link className="h55" to="/login">EPF Account Information</Link>
+            </div>
+
+            <div className="accinfo1">
+                <Link className="h51" to="/login">Fixed Deposit</Link>
+                <Link className="h52" to="/login">Recurring Deposit</Link>
+                <Link className="h53" to="/login">Start Your SIP</Link>
+                <Link className="h54" to="/login">Planned Investments</Link>
+                <Link className="h55" to="/login">Soverign Gold Bonds</Link>
+            </div>
+            </div>
+        
         {/* <img src="images/img1.jpg" classNameName="img1" alt="Banking Solutions"/> */}
         <div id="carouselExampleCaptions" className="carousel slide" data-bs-ride="carousel">
         <div className="carousel-indicators">
@@ -66,12 +96,7 @@ export default function Home(){
             <span className="visually-hidden">Next</span>
         </button>
         </div>
-
-        {/* <div className = "BoxDiv">
-            <HomeBoxes className="box1" t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" />
-            {/* <HomeBoxes t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" />
-            <HomeBoxes t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" /> 
-        </div> */}
+        
                 
         </div>
     );

@@ -28,6 +28,20 @@ export default function Navbar(){
           <li className="loginbtn">
             <Link className="nav-link" to="/login">Login</Link>
           </li>
+          <li className="nav-item dropdown">
+            {/* <Link className="nav-link dropdown-toggle" to="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </Link> */}
+            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+              <Link className="dropdown-item" to="/">Home</Link>
+              <Link className="dropdown-item" to="/personal">Personal</Link>
+              <Link className="dropdown-item" to="/about">About</Link>
+              <Link className="dropdown-item" to="/contact">Contact Us</Link>
+              <Link className="dropdown-item" to="/login">Login</Link>
+              <div className="dropdown-divider"></div>
+              {/* <Link className="dropdown-item" to="/">Something else here</Link> */}
+            </div>
+          </li>
 
         </ul>
       </div>

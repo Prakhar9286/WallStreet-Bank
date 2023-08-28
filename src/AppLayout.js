@@ -22,6 +22,8 @@ import Imps from './routes/Imps';
 import AdminDashboard from './adminServices/AdminDashboard';
 import AdminNavBar from './components/Navbar.jsx';
 import { AdminUserWithdrawal } from './adminServices/AdminUserWithdrawal';
+// import { ForgotPassword } from './ForgotPassword';
+// import { ForgotUserID } from './ForgotUserID';
 
 export default function AppLayout(){
     return (
@@ -38,19 +40,21 @@ export default function AppLayout(){
             {/* <Route path="basicinformation" element={<BasicInformation/>} /> */}
             <Route path="netbanking" element={<NetBanking/>} />
             <Route path="/:customerId/openAccount" element={<OpenAccount/>} />
+            {/* <Route path="forgotpassword" element={<ForgotPassword/>} /> 
+            <Route path="forgotuserid" element={<ForgotUserID/>} /> */}
+
             {/* <Route exact path="/:customerId/dashboard" element={<Dashboard/>} /> */}
             
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
-          </Route>
-          <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
+            <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
             <Route path="neft" element={<Neft/>} />
             <Route path="rtgs" element={<Rtgs/>} />
             <Route path="imps" element={<Imps/>} />
             <Route path="admindashboard" element={<AdminDashboard/>} />
             <Route path="adminuserwithdrawal" element={<AdminUserWithdrawal/>} />
-          <Route />
+          </Route>
         </Routes>
       </BrowserRouter>
     );

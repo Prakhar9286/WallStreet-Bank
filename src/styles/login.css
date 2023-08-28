@@ -18,7 +18,7 @@
     display: flex;
     flex-direction: column;
     width: 401px;
-    height: 350px;
+    height: 400px;
     padding-top: 27px;
 }
 
@@ -27,6 +27,7 @@
       padding: 0px 60px;
       border-radius: 10px;
       border-top: 20px;
+      border-style: solid;
 }
 
 .h2 {
@@ -35,8 +36,9 @@
 }
 
 .link-btn{
+    /* background: none; */
     color: black;
-    padding-left: 2px;
+    text-decoration: none;
 }
 
 .submitbtn{

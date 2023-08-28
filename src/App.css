@@ -1,59 +1,8 @@
-.home{
-  background-color: rgb(148, 148, 207);
+.home{ 
+  background-color: azure;
+  height: 118vh;
+  /* overflow-y: auto; */
 }
-/* 
-.App {
-  text-align: center;
-  display: flex;
-  min-height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(79deg, #7439db, #C66FBC 48%, #F7944D);
-} */
-
-/* .auth-form-container, .login-form, .register-form, .basicinformation1-form {
-  display: flex;
-  flex-direction: column;
-}
-
-@media screen and (min-width: 600px) {
-  .auth-form-container {
-    padding: 5rem;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin: 0.5rem;
-  }
-}
-
-label {
-  text-align: left;
-  padding: 0.25rem 0;
-}
-
-input {
-  margin: 0.5rem 0;
-  padding: 1rem;
-  border: none;
-  border-radius: 10px;
-}
-
-.button {
-  border: none;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #7439db;
-}
-
-.submitButton {
-  border: none;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-  color: #7439db;
-} */
 
 .button1 {
   display: block;
@@ -103,6 +52,8 @@ input {
   background-color: black;
   color: aliceblue;
   text-align: center;
+  height: 50px;
+  padding-top: 5px;
   /* text-align: center;
   background-color: black;
   color: aliceblue;
@@ -127,6 +78,8 @@ input {
   padding-bottom: 0%;
   color: #170c2b;
   font-size: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .box-container{

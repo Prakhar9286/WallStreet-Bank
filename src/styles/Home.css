@@ -1,7 +1,3 @@
-.home{ 
-    background-color: azure;
-}
-
 .img12 {
     height: 450px;
     width: 1050px;
@@ -17,9 +13,60 @@
 
 .BoxDiv{
     margin-top: 800px;
-    background-color: aquamarine;
+    background-color: red;
 }
 
 .box1{
     background-color: blueviolet;
 }
+
+.accinfo1{
+    display: flex;
+    flex-direction: column;
+    color: black;
+    font-weight: bold;
+    background-color: lightcoral;
+    height: 180px;
+    width: 300px;
+    border-radius: 5px;
+    justify-content: center;
+    padding-left: 40px;
+}
+
+.carousel-inner{
+    padding-top: 30px;
+}
+
+.mainBox{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    margin-left: 275px;
+}
+
+.h51{
+    text-decoration: none;
+    color: black;
+}
+
+.h52{
+    text-decoration: none;
+    color: black;
+}
+
+.h53{
+    text-decoration: none;
+    color: black;
+}
+
+.h54{
+    text-decoration: none;
+    color: black;
+}
+
+.h55{
+    text-decoration: none;
+    color: black;
+}
+
