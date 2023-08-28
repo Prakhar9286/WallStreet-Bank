@@ -1,6 +1,8 @@
 import React from "react";
 // import {useNavigate} from 'react-router-dom';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import "../styles/Home.css";
+import HomeBoxes from "../homeComponents/HomeBoxes";
 
 export default function Home(){
     // const [noAccount, setAccount] = useState('Home');
@@ -64,11 +66,13 @@ export default function Home(){
             <span className="visually-hidden">Next</span>
         </button>
         </div>
-        
-        <div className="box-container">
-            <Link className="box1" to="/register">Are You a new User!</Link>
-            <Link className="box2" to="/netbanking">Are You an Existing User!</Link>
-        </div>
+
+        {/* <div className = "BoxDiv">
+            <HomeBoxes className="box1" t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" />
+            {/* <HomeBoxes t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" />
+            <HomeBoxes t1 = "Get Loans" t2 = "Instant Rewards on Creadit Card" t3 = "Get me a Credit card" t4="CAshbacks on Card" /> 
+        </div> */}
+                
         </div>
     );
 }

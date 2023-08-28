@@ -2,22 +2,22 @@ import React from 'react'
 import styled from 'styled-components'
 import {BiSearch} from 'react-icons/bi'
 
-function Navbar() {
+function NavBar() {
     return (
         <Nav>
                 <div className="title">
-                    <h1>Dashboard</h1>
+                    <h4>Dashboard</h4>
                     <h5>Payment updates</h5>
                 </div>
-                <div className="search">
+                {/* <div className="search">
                     <BiSearch />
                     <input type="text" placeholder="Search" />
-                </div>
+                </div> */}
         </Nav>
     )
 }
 
-export default Navbar
+export default NavBar
 const Nav = styled.nav`
     display: flex;
     justify-content: space-between;

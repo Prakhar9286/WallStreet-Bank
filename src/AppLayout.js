@@ -27,7 +27,7 @@ export default function AppLayout(){
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navbar/>}>
+          <Route path="/" element={<Navbar/>} >
             <Route index element={<Home />} />
             
             <Route path="personal" element={<Personal/>} />
@@ -39,6 +39,11 @@ export default function AppLayout(){
             <Route path="netbanking" element={<NetBanking/>} />
             <Route path="/:customerId/openAccount" element={<OpenAccount/>} />
             {/* <Route exact path="/:customerId/dashboard" element={<Dashboard/>} /> */}
+            
+            {/* <Route path="address" element={<Address/>} /> */}
+            {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
+          </Route>
+          <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
             <Route path="neft/:id" element={<Neft/>} />
             <Route path="rtgs/:id" element={<Rtgs/>} />
