@@ -20,7 +20,8 @@ import DashboardWrapper from './components/DashboardWrapper';
 import Rtgs from './routes/Rtgs';
 import Imps from './routes/Imps';
 import AdminDashboard from './adminServices/AdminDashboard';
-import NavBar from './components/Navbar';
+import AdminNavBar from './components/Navbar.jsx';
+import { AdminUserWithdrawal } from './adminServices/AdminUserWithdrawal';
 
 export default function AppLayout(){
     return (
@@ -42,12 +43,13 @@ export default function AppLayout(){
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>
-          <Route path="/:customerId/dashboard" element={<NavBar />} />
+          <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
             <Route path="neft" element={<Neft/>} />
             <Route path="rtgs" element={<Rtgs/>} />
             <Route path="imps" element={<Imps/>} />
             <Route path="admindashboard" element={<AdminDashboard/>} />
+            <Route path="adminuserwithdrawal" element={<AdminUserWithdrawal/>} />
           <Route />
         </Routes>
       </BrowserRouter>

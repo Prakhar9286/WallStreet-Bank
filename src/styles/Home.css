@@ -1,0 +1,25 @@
+.home{ 
+    background-color: azure;
+}
+
+.img12 {
+    height: 450px;
+    width: 1050px;
+}
+
+.carousel-control-prev{
+    margin-left: 180px;
+}
+
+.carousel-control-next{
+    margin-right: 180px;
+}
+
+.BoxDiv{
+    margin-top: 800px;
+    background-color: aquamarine;
+}
+
+.box1{
+    background-color: blueviolet;
+}
