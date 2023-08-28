@@ -35,6 +35,19 @@ public class CustomerService {
 	public Optional<Customer> getCustomer(Account account) {
 		return crepo.findByAccount(account);
 	}
+
+	public Optional<Customer> getCustomer(Long custId) {
+		return crepo.findById(custId);
+	}
+
+	public Account getAccount(Long custId) {
+		Optional<Customer> c = crepo.findById(custId);
+		Customer cust = c.get();
+		return cust.getAccount();
+		
+		
+
+	}
 	
 	public String openAccount(Long custId, AccountForm accountForm) {
 		System.out.println("====== HERE ========");

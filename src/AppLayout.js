@@ -13,17 +13,16 @@ import { Login } from './routes/Login';
 import NetBanking from './routes/NetBanking';
 // import { Address } from './userInformation/Address';
 // import { PermanentAddress } from './userInformation/PermanentAddress';
-import Dashboard from './components/Dashboard';
 import OpenAccount from './userInformation/OpenAccount';
 import Neft from './routes/Neft';
 import DashboardWrapper from './components/DashboardWrapper';
 import Rtgs from './routes/Rtgs';
 import Imps from './routes/Imps';
+import ForgotUserID from './ForgotUserID'
+import { ForgotPassword } from './ForgotPassword';
 import AdminDashboard from './adminServices/AdminDashboard';
 import AdminNavBar from './components/Navbar.jsx';
 import { AdminUserWithdrawal } from './adminServices/AdminUserWithdrawal';
-// import { ForgotPassword } from './ForgotPassword';
-// import { ForgotUserID } from './ForgotUserID';
 
 export default function AppLayout(){
     return (
@@ -47,14 +46,15 @@ export default function AppLayout(){
             
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
-            <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
+          </Route>
+          <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
             <Route path="neft" element={<Neft/>} />
             <Route path="rtgs" element={<Rtgs/>} />
             <Route path="imps" element={<Imps/>} />
             <Route path="admindashboard" element={<AdminDashboard/>} />
             <Route path="adminuserwithdrawal" element={<AdminUserWithdrawal/>} />
-          </Route>
+          <Route />
         </Routes>
       </BrowserRouter>
     );

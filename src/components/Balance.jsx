@@ -1,13 +1,40 @@
-import React from 'react'
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { useEffect } from 'react'
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import styled from "styled-components";
-function Balance() {
+import { useState } from 'react';
+import AuthenticationService from '../services/AuthenticationService';
+const Balance = (props) => {
+  const [balance,setBalance] = useState(0);
+  const [accountBalance, setAccountBalance] = useState(0);
+  
+  const custId = props.customerId;
+  const handleBalance = async (custId) => {
+    try {
+      const response = await AuthenticationService.getBalance(custId);
+      console.log(response);
+      return  response;
+    }
+    catch {
+      console.log("Unable to fetch balance ");
+    }
+  }
+  useEffect(() => {
+    handleBalance(custId).then((response) => {
+      setAccountBalance(response);
+    },[])
+  })
+  const handleClick = () => {
+    if(balance == 0) {
+      setBalance(1);
+    }
+    else setBalance(0);
+  }
     return (
         <Section>
             <div className="sales">
                 <div className="sales__details">
-                    <div>
-                        <h4>Balance</h4>
+                    <div onClick={handleClick}>
+                        <h4>Balance  : {(balance == 0) ? ("XXXXX") : "Rs  " + accountBalance}</h4>
                     </div>
                     <div>
                         <h5>PAST 30 DAY</h5>

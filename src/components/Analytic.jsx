@@ -7,16 +7,17 @@ import { BsBank } from "react-icons/bs";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { useNavigate } from 'react-router-dom';
 
-function Analytic() {
+const  Analytic = (props) => {
     const history = useNavigate();
+    const id = props.customerId;
     const handleNeft = () => {
-        history("/neft")
+        history("/neft/"+id)
     }
     const handleRtgs = () => {
-        history("/rtgs")
+        history("/rtgs/"+id)
     }
     const handleImps = () => {
-        history("/imps")
+        history("/imps/"+id)
     }
     return (
         <Section>

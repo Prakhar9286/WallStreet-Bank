@@ -2,6 +2,8 @@ package com.welllsfargo.training.obs.model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +33,7 @@ public class Account {
 	private Long transactionPassword;
 	private int unsuccessfulAttemptsCounter;
 	
+	@JsonIgnore
 	@OneToOne(mappedBy="account", cascade= CascadeType.ALL)
 	private Customer customer;
 	

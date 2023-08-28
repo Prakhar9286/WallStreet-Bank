@@ -1,7 +1,8 @@
 import React, {useState} from "react";
-import styles from '../styles/Imps.module.css'
+import styles from '../styles/Imps.module.css';
 import AuthenticationService from "../services/AuthenticationService";
-
+import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function Imps(){
     const [formData, setFormData] = useState({
@@ -13,7 +14,8 @@ export default function Imps(){
         remarks:'',
         transactionTypeId : "IMPS"
     });
-
+    const {id} = useParams();
+    const history = useNavigate();
     const handleTransaction = async () => {
         if (!formData.amount || !formData.fromAc || !formData.toAc) {
         //   setErrorMessage('Please enter both email and password.');
@@ -31,6 +33,7 @@ export default function Imps(){
         // console.log('API response:', loginSuccess.data); // Add this line
         if (loginSuccess) {
             console.log("Login successful!")
+            history("/transactionSuccessful/"+id,{state : {transactionMsg : loginSuccess}})
         //   setSuccessMessage('Login successful. Redirecting...');
         //   setTimeout(() => {
         //     history("/"+custId+"/openAcount"); // navigates to product Component
@@ -93,7 +96,7 @@ export default function Imps(){
             </label>
 
             <div className={styles.buttoncontainer}>
-                <button type="button" onClick={handleSave}>Save</button>
+                {/* <button type="button" onClick={handleSave}>Save</button> */}
                 <button type="button" onClick={handleReset}>Reset</button>
                 <button type="button" onClick={handleContinue}>Continue</button>
             </div>

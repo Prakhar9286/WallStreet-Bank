@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -79,13 +80,19 @@ public class CustomerController {
 		return a;
 	}
 	
-	
-	public ResponseEntity<String> forgetCustomerId(@Validated @RequestBody Long accountNo) throws ResourceNotFoundException {
+	@GetMapping("/forgotCustId/{accountNo}")
+	public ResponseEntity<String> forgetCustomerId(@PathVariable Long accountNo) throws ResourceNotFoundException {
 		Account account = aservice.findByAccountNo(accountNo).orElseThrow(() -> 
 		new ResourceNotFoundException("Invalid Account No."));
 		Customer customer = cservice.getCustomer(account).orElseThrow(()->
 		new ResourceNotFoundException("Customer details not found"));
 		Long customerId = customer.getCustId();
 		return ResponseEntity.ok(customerId.toString());
+	}
+
+	@GetMapping("/{customerId}/getCustomerDetails")
+	public ResponseEntity<Customer> getCustomerDetails(@PathVariable Long customerId) {
+		Customer c = cservice.getCustomer(customerId).get();
+		return ResponseEntity.ok(c);
 	}
 }

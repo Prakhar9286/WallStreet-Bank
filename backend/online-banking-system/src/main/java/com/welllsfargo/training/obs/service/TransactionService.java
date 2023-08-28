@@ -1,5 +1,6 @@
 package com.welllsfargo.training.obs.service;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,16 @@ public class TransactionService {
 	public List<Transaction> getLast10Transactions(Long accountId) {
 		Pageable pageable = PageRequest.of(0, 10,Sort.by("date").descending());
 		List<Transaction> transactions = trepo.findLast10TransactionsByAccount(accountId, pageable);
+		return transactions;
+	}
+
+	public List<Transaction> getTransactionBetweenDates(Long accounId, Date startDate, Date endDate) {
+		return trepo.findTransactionBetweenDates(accounId, startDate, endDate);
+	}
+
+	public List<Transaction> getAllTransactions(Long accountId) {
+		// Pageable pageable = PageRequest.of(0, 10,Sort.by("date").descending());
+		List<Transaction> transactions = trepo.findAllTransactions(accountId);
 		return transactions;
 	}
 }

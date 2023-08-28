@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from '../styles/Neft.module.css'
 import AuthenticationService from "../services/AuthenticationService";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function Neft(){
@@ -13,7 +14,9 @@ export default function Neft(){
         remarks:'',
         transactionTypeId : "NEFT"
     });
-
+    const {id} = useParams();
+    const history = useNavigate();
+    const [transaction,setTransaction] = useState([])
     const handleChange = (e) =>{
         const {name, value} = e.target;
         setFormData((prevData) =>({...prevData, [name]: value}));
@@ -50,6 +53,9 @@ export default function Neft(){
         // console.log('API response:', loginSuccess.data); // Add this line
         if (loginSuccess) {
             console.log("Login successful!")
+            console.log(loginSuccess);
+            setTransaction(loginSuccess);
+            history("/transactionSuccessful/"+id,{state : {transactionMsg : loginSuccess}})
         //   setSuccessMessage('Login successful. Redirecting...');
         //   setTimeout(() => {
         //     history("/"+custId+"/openAccount"); // navigates to product Component
@@ -95,7 +101,7 @@ export default function Neft(){
            <br></br> 2. Timings for NEFT: Monday - Saturday (except 2nd and 4th Saturday) 4:00 AM - 6:30 AM
 
             <div className={styles.buttoncontainer}>
-                <button type="button" onClick={handleSave}>Save</button>
+                {/* <button type="button" onClick={handleSave}>Save</button> */}
                 <button type="button" onClick={handleReset}>Reset</button>
                 <button type="button" onClick={handleContinue}>Continue</button>
             </div>

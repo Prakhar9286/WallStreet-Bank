@@ -6,22 +6,17 @@ import styled from 'styled-components';
 import AdminSidebar from './AdminSidebar.jsx';
 import AdminRightSidebar from './AdminRightSidebar';
 import { AdminAccountUserServices } from './AdminAccountUserServices';
-import Navbar from '../components/Navbar.jsx';
-
 function AdminDashboard() {
     return (
     <Section className="layout">
-        <Navbar />
-
-        <div className="search-box">
+    {/* //     <div className="leftgrid">
+    //         <AdminSidebar/>
+    //     </div>
+    //     <div className='rightgrid'>
+    //         <AdminRightSidebar />
+    //     </div> */}
+        <div>
             <AdminAccountUserServices />
-        </div>
-
-        <div className="leftgrid">
-            <AdminSidebar/>
-        </div>
-        <div className='rightgrid'>
-            <AdminRightSidebar />
         </div>
         {/* <div className="maingrid">        
                 <AdminHistory />    

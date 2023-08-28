@@ -77,5 +77,11 @@ public class AccountService {
 		
 		trepo.save(t);
 	}
+
+	public Float getBalance(Long custId) {
+		Customer c  = crepo.getReferenceById(custId);
+		Float balance = c.getAccount().getBalance();
+		return balance;
+	}
 	
 }
