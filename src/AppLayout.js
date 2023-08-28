@@ -43,7 +43,7 @@ export default function AppLayout(){
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
           </Route>
-          <Route path="/:customerId/dashboard" element={<AdminNavBar />} />
+          {/* <Route path="/:customerId/dashboard" element={<AdminNavBar />} /> */}
             <Route exact path="/:customerId/dashboard" element={<DashboardWrapper/>} />
             <Route path="neft/:id" element={<Neft/>} />
             <Route path="rtgs/:id" element={<Rtgs/>} />
@@ -55,7 +55,7 @@ export default function AppLayout(){
             <Route path="transactionSuccessful/:id" element={<TransferSuccessfulPage/>} />
             {/* <Route path="address" element={<Address/>} /> */}
             {/* <Route path="permanentaddress" element={<PermanentAddress/>} /> */}
-          </Route>
+          {/* </Route> */}
         </Routes>
       </BrowserRouter>
     );
